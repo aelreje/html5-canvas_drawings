@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3x3 Canvas Grid</title>
+    <style>
+        /* Use Inter font and a light gray background */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* * Use Flexbox on the body to center the grid container.
+         * - display: flex
+         * - justify-content: center (centers horizontally)
+         * - align-items: center (centers vertically)
+         * - min-height: 100vh (ensures it takes at least the full screen height)
+         */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* * Define the 3x3 grid.
+         * - display: grid
+         * - grid-template-columns: Defines 3 columns, each 200px wide.
+         * - grid-template-rows: Defines 3 rows, each 200px high.
+         * - gap: Adds spacing between the grid cells.
+         * - box-shadow: Adds a nice shadow for depth.
+         * - border-radius: Rounds the corners of the grid.
+         * - overflow: hidden (ensures children don't bleed outside the rounded corners)
+         */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            grid-template-rows: repeat(3, 200px);
+            gap: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* * Style for each cell in the grid (both canvas and text).
+         * - width/height: 100% to fill the parent grid cell (which is 200x200).
+         * - background-color: A clean white.
+         * - border: A light border to define each cell.
+         * - border-radius: Slightly rounded corners for each cell.
+         * - box-sizing: border-box (important!)
+         */
+        .grid-cell {
+            width: 200px;
+            height: 200px;
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-sizing: border-box; /* Ensures padding/border are included in the 200px */
+            display: flex; /* Used to center content inside the cell */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Specific style for the text cell */
+        .text-cell {
+            padding: 16px;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.5;
+            /* Flex properties inherited from .grid-cell will center this text */
+        }
+        
+        /* Ensures canvas elements don't have default block margins */
+        canvas {
+            display: block;
+        }
+    </style>
+    <!-- Load the Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="grid-container">
+        <!-- Row 1 -->
+        <canvas id="canvas1" class="grid-cell" width="200" height="200"></canvas>
+        <canvas id="canvas2" class="grid-cell" width="200" height="200"></canvas>
+        <canvas id="canvas3" class="grid-cell" width="200" height="200"></canvas>
+
+        <!-- Row 2 -->
+        <canvas id="canvas4" class="grid-cell" width="200" height="200"></canvas>
+        <canvas id="canvas5" class="grid-cell" width="200" height="200"></canvas>
+        <canvas id="canvas6" class="grid-cell" width="200" height="200"></canvas>
+
+        <!-- Row 3 -->
+        <canvas id="canvas7" class="grid-cell" width="200" height="200"></canvas>
+        <canvas id="canvas8" class="grid-cell" width="200" height="200"></canvas>
+        
+        <!-- The 9th cell, reserved for text -->
+        <div id="text-cell-9" class="grid-cell text-cell">
+            <p>This cell is reserved for text and descriptions.</p>
+        </div>
+    </div>
+
+    <script>
+        // This script adds placeholder numbers (1-8) to each canvas
+        // so you can easily identify them.
+        window.onload = function() {
+            for (let i = 1; i <= 8; i++) {
+                const canvas = document.getElementById('canvas' + i);
+                if (canvas) {
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Clear rectangle (in case)
+                    ctx.clearRect(0, 0, 200, 200);
+
+                    // Style for the placeholder text
+                    ctx.font = 'bold 50px Inter';
+                    ctx.fillStyle = '#cccccc';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+
+                    // Draw the number in the center
+                    ctx.fillText(i, 100, 100);
+                }
+            }
+        };
+    </script>
+
+</body>
+</html>
