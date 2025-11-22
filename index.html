@@ -3,37 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2x4 Canvas Grid</title>
+    <title>8 Graphical Arts - 2x4 Grid</title>
     <style>
-        /* Use Inter font and a light gray background */
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
+        body, html { 
+            height: 100%; 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f0f2f5; 
         }
-
-        /* * Use Flexbox on the body to center the grid container.
-         * - display: flex
-         * - justify-content: center (centers horizontally)
-         * - align-items: center (centers vertically)
-         * - min-height: 100vh (ensures it takes at least the full screen height)
-         */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        
+        body { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
         }
-
-        /* * Define the 2x4 grid.
-         * - display: grid
-         * - grid-template-columns: Defines 4 columns, each 200px wide.
-         * - grid-template-rows: Defines 2 rows, each 200px high.
-         * - gap: Adds spacing between the grid cells.
-         * - box-shadow: Adds a nice shadow for depth.
-         * - border-radius: Rounds the corners of the grid.
-         * - overflow: hidden (ensures children don't bleed outside the rounded corners)
-         */
+        
         .grid-container {
             display: grid;
             grid-template-columns: repeat(4, 200px);
@@ -45,54 +29,45 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
-        /* * Style for each cell in the grid (both canvas and text).
-         * - width/height: 100% to fill the parent grid cell (which is 200x200).
-         * - background-color: A clean white.
-         * - border: A light border to define each cell.
-         * - border-radius: Slightly rounded corners for each cell.
-         * - box-sizing: border-box (important!)
-         */
         .grid-cell {
-            width: 200px;
+            width: 200px; 
             height: 200px;
             background-color: #fafafa;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            box-sizing: border-box; /* Ensures padding/border are included in the 200px */
-            display: flex; /* Used to center content inside the cell */
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Specific style for the text cell */
-        .text-cell {
-            padding: 16px;
-            color: #333;
-            font-size: 1rem;
-            line-height: 1.5;
-            /* Flex properties inherited from .grid-cell will center this text */
-        }
-        
-        /* Ensures canvas elements don't have default block margins */
-        canvas {
+            box-sizing: border-box;
             display: block;
         }
     </style>
-    <!-- Load the Inter font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Initialize AdobeAn Namespace -->
+    <script>
+        var AdobeAn = {};
+    </script>
+
+    <!-- Load CreateJS -->
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+
+    <!-- Load Asset Scripts -->
+    <script src="assets/fire-glyph_final-symbols.js"></script>
+    <script src="assets/water_final-symbols.js"></script>
+    <script src="assets/grass_final-symbols.js"></script>
+    <script src="assets/ice-glyph_final-symbols.js"></script>
+    <script src="assets/light-glyph_final-symbols.js"></script>
+    <script src="assets/lightning_final-symbols.js"></script>
+    <script src="assets/plant-glyph_final-symbols.js"></script>
+    <script src="assets/fire_final-symbols.js"></script> 
 </head>
 <body>
 
     <div class="grid-container">
-        <!-- Row 1: 4 columns -->
+        <!-- Row 1 -->
         <canvas id="canvas1" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas2" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas3" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas4" class="grid-cell" width="200" height="200"></canvas>
 
-        <!-- Row 2: 4 columns -->
+        <!-- Row 2 -->
         <canvas id="canvas5" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas6" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas7" class="grid-cell" width="200" height="200"></canvas>
@@ -100,27 +75,65 @@
     </div>
 
     <script>
-        // This script adds placeholder numbers (1-8) to each canvas
-        // so you can easily identify them.
-        window.onload = function() {
-            for (let i = 1; i <= 8; i++) {
-                const canvas = document.getElementById('canvas' + i);
-                if (canvas) {
-                    const ctx = canvas.getContext('2d');
-                    
-                    // Clear rectangle (in case)
-                    ctx.clearRect(0, 0, 200, 200);
+        // Map Canvas IDs to the Unique IDs in the requested order
+        const compositions = [
+            // Row 1
+            { canvasId: 'canvas1', compId: 'FIRE_FINAL' },      
+            { canvasId: 'canvas2', compId: 'WATER_GLYPH' },    
+            { canvasId: 'canvas3', compId: 'GRASS_GLYPH' },    
+            { canvasId: 'canvas4', compId: 'LIGHTNING_GLYPH' },       
+            
+            // Row 2
+            { canvasId: 'canvas5', compId: 'FIRE_GLYPH' },     
+            { canvasId: 'canvas6', compId: 'ICE_GLYPH'}, 
+            { canvasId: 'canvas7', compId: 'PLANT_GLYPH' },     
+            { canvasId: 'canvas8', compId: 'LIGHT_GLYPH' }       
+        ];
 
-                    // Style for the placeholder text
-                    ctx.font = 'bold 50px Inter';
-                    ctx.fillStyle = '#cccccc';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-
-                    // Draw the number in the center
-                    ctx.fillText(i, 100, 100);
-                }
+        function loadComposition(config) {
+            var comp = AdobeAn.getComposition(config.compId);
+            
+            if (!comp) {
+                console.error("Composition not found:", config.compId);
+                return;
             }
+
+            var lib = comp.getLibrary();
+            var loader = new createjs.LoadQueue(false);
+            
+            loader.addEventListener("fileload", function(evt){
+                var images = comp.getImages();
+                if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+            });
+
+            loader.addEventListener("complete", function(evt){
+                var ss = comp.getSpriteSheet();
+                var queue = evt.target;
+                var ssMetadata = lib.ssMetadata;
+                for(var i=0; i<ssMetadata.length; i++) {
+                    ss[ssMetadata[i].name] = new createjs.SpriteSheet( {
+                        "images": [queue.getResult(ssMetadata[i].name)], 
+                        "frames": ssMetadata[i].frames
+                    } );
+                }
+
+                var canvas = document.getElementById(config.canvasId);
+                var exportRoot = new lib.finalsymbols(); 
+                var stage = new createjs.Stage(canvas);
+                
+                // Scale 300x300 assets to 200x200 canvas
+                exportRoot.scaleX = exportRoot.scaleY = 200 / 300;
+                
+                stage.addChild(exportRoot);
+                createjs.Ticker.framerate = lib.properties.fps;
+                createjs.Ticker.addEventListener("tick", stage);
+            });
+
+            loader.loadManifest(lib.properties.manifest);
+        }
+
+        window.onload = function() {
+            compositions.forEach(config => loadComposition(config));
         };
     </script>
 
