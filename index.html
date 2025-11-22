@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3x3 Canvas Grid</title>
+    <title>2x4 Canvas Grid</title>
     <style>
         /* Use Inter font and a light gray background */
         body, html {
@@ -25,10 +25,10 @@
             align-items: center;
         }
 
-        /* * Define the 3x3 grid.
+        /* * Define the 2x4 grid.
          * - display: grid
-         * - grid-template-columns: Defines 3 columns, each 200px wide.
-         * - grid-template-rows: Defines 3 rows, each 200px high.
+         * - grid-template-columns: Defines 4 columns, each 200px wide.
+         * - grid-template-rows: Defines 2 rows, each 200px high.
          * - gap: Adds spacing between the grid cells.
          * - box-shadow: Adds a nice shadow for depth.
          * - border-radius: Rounds the corners of the grid.
@@ -36,8 +36,8 @@
          */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 200px);
-            grid-template-rows: repeat(3, 200px);
+            grid-template-columns: repeat(4, 200px);
+            grid-template-rows: repeat(2, 200px);
             gap: 10px;
             padding: 10px;
             background-color: #ffffff;
@@ -86,24 +86,17 @@
 <body>
 
     <div class="grid-container">
-        <!-- Row 1 -->
+        <!-- Row 1: 4 columns -->
         <canvas id="canvas1" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas2" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas3" class="grid-cell" width="200" height="200"></canvas>
-
-        <!-- Row 2 -->
         <canvas id="canvas4" class="grid-cell" width="200" height="200"></canvas>
+
+        <!-- Row 2: 4 columns -->
         <canvas id="canvas5" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas6" class="grid-cell" width="200" height="200"></canvas>
-
-        <!-- Row 3 -->
         <canvas id="canvas7" class="grid-cell" width="200" height="200"></canvas>
         <canvas id="canvas8" class="grid-cell" width="200" height="200"></canvas>
-        
-        <!-- The 9th cell, reserved for text -->
-        <div id="text-cell-9" class="grid-cell text-cell">
-            <p>This cell is reserved for text and descriptions.</p>
-        </div>
     </div>
 
     <script>

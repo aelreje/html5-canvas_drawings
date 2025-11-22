@@ -122,14 +122,14 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(196.1,188.1,566.6999999999999,551.6999999999999);
 // library properties:
 lib.properties = {
-	id: 'BB8F9651A1A44B4C8FB3447037A98C64',
+	id: 'GRASS_GLYPH',
 	width: 300,
 	height: 300,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/grass_final_symbols_atlas_1.png", id:"grass_final_symbols_atlas_1"}
+		{src:"assets/images/grass_final_symbols_atlas_1.png", id:"grass_final_symbols_atlas_1"}
 	],
 	preloads: []
 };
@@ -167,7 +167,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['BB8F9651A1A44B4C8FB3447037A98C64'] = {
+an.compositions['GRASS_GLYPH'] = {
 	getStage: function() { return exportRoot.stage; },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },

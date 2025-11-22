@@ -55,17 +55,18 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-331.3,101,1094.5,330);
 // library properties:
 lib.properties = {
-	id: 'BB8F9651A1A44B4C8FB3447037A98C64',
+	id: 'ICE_GLYPH',
 	width: 300,
 	height: 300,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/CachedBmp_7.png", id:"CachedBmp_7"}
+		{src:"assets/images/CachedBmp_7.png", id:"CachedBmp_7"}
 	],
 	preloads: []
 };
+
 
 
 
@@ -100,7 +101,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['BB8F9651A1A44B4C8FB3447037A98C64'] = {
+an.compositions['ICE_GLYPH'] = {
 	getStage: function() { return exportRoot.stage; },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },

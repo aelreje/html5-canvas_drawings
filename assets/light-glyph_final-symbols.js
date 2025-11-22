@@ -55,17 +55,18 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-331.3,101,879.5,330);
 // library properties:
 lib.properties = {
-	id: 'BB8F9651A1A44B4C8FB3447037A98C64',
+	id: 'LIGHT_GLYPH',
 	width: 300,
 	height: 300,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/CachedBmp_8.png", id:"CachedBmp_8"}
+		{src:"assets/images/CachedBmp_8.png", id:"CachedBmp_8"}
 	],
 	preloads: []
 };
+
 
 
 
@@ -100,12 +101,13 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['BB8F9651A1A44B4C8FB3447037A98C64'] = {
+an.compositions['LIGHT_GLYPH'] = {
 	getStage: function() { return exportRoot.stage; },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },
 	getImages: function() { return img; }
 };
+
 
 an.compositionLoaded = function(id) {
 	an.bootcompsLoaded.push(id);
