@@ -2,9 +2,7 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-lib.ssMetadata = [
-		{name:"symbols_plant_atlas_1", frames: [[0,0,425,425],[0,427,425,425],[427,0,425,425],[427,427,425,425]]}
-];
+lib.ssMetadata = [];
 
 
 (lib.AnMovieClip = function(){
@@ -27,36 +25,14 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_4 = function() {
-	this.initialize(ss["symbols_plant_atlas_1"]);
-	this.gotoAndStop(0);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.CachedBmp_3 = function() {
-	this.initialize(ss["symbols_plant_atlas_1"]);
-	this.gotoAndStop(1);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.CachedBmp_2 = function() {
-	this.initialize(ss["symbols_plant_atlas_1"]);
-	this.gotoAndStop(2);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.CachedBmp_1 = function() {
-	this.initialize(ss["symbols_plant_atlas_1"]);
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
+(lib.CachedBmp_7 = function() {
+	this.initialize(img.CachedBmp_7);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,2489,960);
 
 
 // stage content:
-(lib.RECOVER_symbols = function(mode,startPosition,loop,reversed) {
+(lib.finalsymbols = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
 	var props = new Object();
@@ -67,44 +43,26 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 
-	// Layer_1
-	this.instance = new lib.CachedBmp_1();
-	this.instance.setTransform(43.75,43.75,0.5,0.5);
+	// fire_s_svg
+	this.instance = new lib.CachedBmp_7();
+	this.instance.setTransform(-481.3,-49.05,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
-
-	// Layer_1
-	this.instance_1 = new lib.CachedBmp_2();
-	this.instance_1.setTransform(43.75,43.75,0.5,0.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
-
-	// Layer_1
-	this.instance_2 = new lib.CachedBmp_3();
-	this.instance_2.setTransform(43.75,43.75,0.5,0.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1));
-
-	// Layer_1
-	this.instance_3 = new lib.CachedBmp_4();
-	this.instance_3.setTransform(43.75,43.8,0.5,0.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(193.8,193.8,62.5,62.5);
+p.nominalBounds = new cjs.Rectangle(-331.3,101,1094.5,330);
 // library properties:
 lib.properties = {
-	id: '59584F62647C40449A7D0B4FA413E70E',
+	id: 'BB8F9651A1A44B4C8FB3447037A98C64',
 	width: 300,
 	height: 300,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/symbols_plant_atlas_1.png", id:"symbols_plant_atlas_1"}
+		{src:"images/CachedBmp_7.png", id:"CachedBmp_7"}
 	],
 	preloads: []
 };
@@ -142,7 +100,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['59584F62647C40449A7D0B4FA413E70E'] = {
+an.compositions['BB8F9651A1A44B4C8FB3447037A98C64'] = {
 	getStage: function() { return exportRoot.stage; },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },
